@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exibir Código PHP</title>
+    <title>PHP Code</title>
 </head>
 <body>
     <pre>
         <?php
-        function vul_array_met_cijfers($aantal_cijfers) {
-            if ($aantal_cijfers < 5) {
-                echo "O número mínimo de cijfers é 5.";
-                return [];
+        function vul_array_met_cijfers($aantal_cijfers = 5) {
+            $cijfers = [];
+            for ($i = 1; $i <= $aantal_cijfers; $i++) {
+                $cijfers[] = $i;
             }
-
-            $cijfers = range(1, $aantal_cijfers);
+        
             return $cijfers;
         }
 
-        $resultaat = vul_array_met_cijfers(7);
-        print_r($resultaat);
+        function toon_array_in_browser($array) {
+            echo "<pre>";
+            print_r($array);
+            echo "</pre>";
+        }
+        $resultaat = vul_array_met_cijfers();
+        toon_array_in_browser($resultaat);
         ?>
     </pre>
 </body>
